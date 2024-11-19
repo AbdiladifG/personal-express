@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Workout Tracker</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h2>Track Your Workouts</h2>
+
+    <h1>Current Workouts</h1>
+    <ul class="workouts">
+        <% for(let i=0; i < info.length; i++) { %>
+            <li class="workout <%= info[i].completed ? 'completed' : '' %>">
+                <input type="checkbox" class="workout-check" <%= info[i].completed ? 'checked' : '' %>>
+                <span><%= info[i].exercise %></span>
+                <span><%= info[i].sets %> sets</span>
+                <span><%= info[i].reps %> reps</span>
+                <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+            </li>
+        <% } %>
+    </ul>
+
+    <h2>Add A Workout:</h2>
+    <form action="/addWorkout" method="POST">
+        <input type="text" placeholder="Exercise Name" name="exercise" required>
+        <input type="number" placeholder="Sets" name="sets" required>
+        <input type="number" placeholder="Reps" name="reps" required>
+        <button type="submit">Add Workout</button>
+    </form>
+
+    <script src="main.js"></script>
+</body>
+</html>
