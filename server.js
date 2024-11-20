@@ -1,7 +1,7 @@
 const express = require("express");
 const MongoClient = require("mongodb").MongoClient;
 const app = express();
-const PORT = 9000;
+const PORT = process.env.PORT || 9000;
 require("dotenv").config();
 
 app.set('view engine', 'ejs');
